@@ -7,11 +7,11 @@ public class ContactData {
   private final String lastName;
   private final String nickName;
   private final String title;
-  private final String company;
+  private final String companyName;
   private final String address;
-  private final String home;
-  private final String mobile;
-  private final String work;
+  private final String homePhone;
+  private final String mobilePhone;
+  private final String workPhone;
   private final String fax;
   private final String email;
   private final String email2;
@@ -21,23 +21,23 @@ public class ContactData {
   private final String birthMonth;
   private final String birthYear;
   private final String address2;
-  private final String phone2;
+  private final String homePhone2;
   private final String notes;
 
   public ContactData(String firstName, String middleName, String lastName, String nickName, String title,
-      String company, String address, String home, String mobile, String work, String fax, String email, String email2,
-      String email3, String homePage, String birthDay, String birthMonth, String birthYear, String address2, String phone2,
+      String companyName, String address, String homePhone, String mobilePhone, String workPhone, String fax, String email, String email2,
+      String email3, String homePage, String birthDay, String birthMonth, String birthYear, String address2, String homePhone2,
       String notes) {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
     this.nickName = nickName;
     this.title = title;
-    this.company = company;
+    this.companyName = companyName;
     this.address = address;
-    this.home = home;
-    this.mobile = mobile;
-    this.work = work;
+    this.homePhone = homePhone;
+    this.mobilePhone = mobilePhone;
+    this.workPhone = workPhone;
     this.fax = fax;
     this.email = email;
     this.email2 = email2;
@@ -47,7 +47,7 @@ public class ContactData {
     this.birthMonth = birthMonth;
     this.birthYear = birthYear;
     this.address2 = address2;
-    this.phone2 = phone2;
+    this.homePhone2 = homePhone2;
     this.notes = notes;
   }
 
@@ -71,24 +71,24 @@ public class ContactData {
     return title;
   }
 
-  public String getCompany() {
-    return company;
+  public String getCompanyName() {
+    return companyName;
   }
 
   public String getAddress() {
     return address;
   }
 
-  public String getHome() {
-    return home;
+  public String getHomePhone() {
+    return homePhone;
   }
 
-  public String getMobile() {
-    return mobile;
+  public String getMobilePhone() {
+    return mobilePhone;
   }
 
-  public String getWork() {
-    return work;
+  public String getWorkPhone() {
+    return workPhone;
   }
 
   public String getFax() {
@@ -127,8 +127,8 @@ public class ContactData {
     return address2;
   }
 
-  public String getPhone2() {
-    return phone2;
+  public String getHomePhone2() {
+    return homePhone2;
   }
 
   public String getNotes() {
