@@ -4,8 +4,9 @@ import org.testng.annotations.Test;
 
 public class GroupDeletionTests extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void testGroupDeletion() {
+    //TBD in task 6
     app.getNavigationHelper().goToGroupPage();
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().deleteSelectedGroups();
