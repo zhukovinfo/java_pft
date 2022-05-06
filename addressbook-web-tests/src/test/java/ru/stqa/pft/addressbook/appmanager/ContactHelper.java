@@ -40,5 +40,27 @@ public class ContactHelper extends HelperBase {
     type(By.name("notes"), contactData.getNotes());
   }
 
+  public void selectFirstContact() {
+    click(By.name("selected[]"));
+  }
 
+  public void deleteSelectedContacts() {
+    click(By.xpath("//input[@value='Delete']"));
+  }
+
+  public void closeDeletionAlertWindow() {
+    wd.switchTo().alert().accept();
+  }
+
+  public void initContactModification() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void editSelectedGroup(){
+    click(By.xpath("//div[@id='content']/form/input[22]"));
+  }
+
+  public void returnToHomePage() {
+    click(By.linkText("home page"));
+  }
 }
