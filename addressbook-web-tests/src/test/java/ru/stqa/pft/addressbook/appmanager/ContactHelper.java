@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -69,5 +70,14 @@ public class ContactHelper extends HelperBase {
 
   public void returnToHomePage() {
     click(By.linkText("home page"));
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
+
+  public void addContact(ContactData contactData) {
+    fillContactEntry(contactData, true);
+    submitContactCreation();
   }
 }
