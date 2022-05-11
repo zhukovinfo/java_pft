@@ -2,10 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -33,16 +31,14 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
     type(By.name("homepage"), contactData.getHomePage());
-    selectFromComboBox(By.name("bday"), contactData.getBirthDay());
-    click(By.xpath("//option[@value='14']"));
-    selectFromComboBox(By.name("bmonth"), contactData.getBirthMonth());
-    click(By.xpath("//option[@value='March']"));
+    selectFromDropDownBox(By.name("bday"), contactData.getBirthDay());
+    selectFromDropDownBox(By.name("bmonth"), contactData.getBirthMonth());
     type(By.name("byear"), contactData.getBirthYear());
     type(By.name("address2"), contactData.getAddress2());
     type(By.name("phone2"), contactData.getHomePhone2());
     type(By.name("notes"), contactData.getNotes());
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        selectFromDropDownBox(By.name("new_group"),contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }

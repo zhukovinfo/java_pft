@@ -14,9 +14,12 @@ public class HelperBase {
     this.wd = wd;
   }
 
-  protected void selectFromComboBox(By locator, String value) {
+  protected void selectFromDropDownBox(By locator, String value) {
     click(locator);
-    new Select(wd.findElement(locator)).selectByVisibleText(value);
+    Select dropDown = new Select(wd.findElement(locator));
+    if (isDropDownValuePresented(dropDown, value)) {
+      dropDown.selectByVisibleText(value);
+    }
   }
 
   protected void click(By locator) {
@@ -51,4 +54,15 @@ public class HelperBase {
       return false;
     }
   }
+
+  private boolean isDropDownValuePresented(Select dropDown, String value){
+    try {
+      dropDown.selectByVisibleText(value);
+      return true;
+    }
+    catch (NoSuchElementException e){
+      return false;
+    }
+  }
+
 }
