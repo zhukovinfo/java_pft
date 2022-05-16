@@ -10,16 +10,22 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void goToHomePage() {
-    if (isElementPresent(By.id("maintable"))){
+    if (isElementPresent(By.xpath("//*[contains(text(),'Delete record')]"))) {
+      click(By.linkText("home"));
       return;
     }
-    click(By.linkText("home page"));
+
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
+
+    click(By.linkText("home"));
   }
 
   public void goToGroupPage() {
     if (isElementPresent(By.tagName("h1"))
         && wd.findElement(By.tagName("h1")).getText().equals("Groups")
-        && isElementPresent(By.name("name"))){
+        && isElementPresent(By.name("name"))) {
       return;
     }
     click(By.linkText("groups"));
