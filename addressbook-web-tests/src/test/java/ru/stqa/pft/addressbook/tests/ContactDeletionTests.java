@@ -7,10 +7,10 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactDeletionTests extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void testContactDeletion() {
     if (!app.getContactHelper().isThereAContact()) {
-      app.getNavigationHelper().goToAddContractPage();
+      app.goTo().goToAddContractPage();
       app.getContactHelper().addContact(
           new ContactData("Andrey", "Nikolaevich", "Zhukov", "zhukov_info",
               "QA", "SomeCompany", "test address", "home", "89878658490",
@@ -22,7 +22,7 @@ public class ContactDeletionTests extends TestBase {
     app.getContactHelper().selectContact(0);
     app.getContactHelper().deleteSelectedContacts();
     app.getContactHelper().closeDeletionAlertWindow();
-    app.getNavigationHelper().goToHomePage();
+    app.goTo().goToHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
 
     Assert.assertEquals(after.size(), before.size() - 1);

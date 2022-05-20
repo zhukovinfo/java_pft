@@ -8,10 +8,10 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactCreationTests extends TestBase {
 
-  @Test
+  @Test(enabled = false)
   public void testContactCreation() {
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getNavigationHelper().goToAddContractPage();
+    app.goTo().goToAddContractPage();
     ContactData contact = new ContactData("Andrey1", "Nikolaevich", "Zhukov", "zhukov_info",
         "QA", "SomeCompany", "test address", "home", "89878658490", "12222",
         "12345", "zhukovinfo@gmail.com", "mail2@email.com", "email3@email.com",
