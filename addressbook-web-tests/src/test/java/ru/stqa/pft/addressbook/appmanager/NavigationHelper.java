@@ -9,7 +9,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
   }
 
-  public void goToHomePage() {
+  public void homePage() {
     if (isElementPresent(By.xpath("//*[contains(text(),'Delete record')]"))) {
       click(By.linkText("home"));
       return;
@@ -31,7 +31,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("groups"));
   }
 
-  public void goToAddContractPage() {
+  public void addContractPage() {
     click(By.linkText("add new"));
   }
 }

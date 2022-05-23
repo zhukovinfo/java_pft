@@ -7,4 +7,4 @@ repositories {
 dependencies {
     implementation 'org.testng:testng:7.5'
     implementation 'org.seleniumhq.selenium:selenium-java:4.1.4'
-}
+    implementation 'org.hamcrest:java-hamcrest:2.0.0.0'}

@@ -1,45 +1,77 @@
 package ru.stqa.pft.addressbook.tests;
 
-import java.util.Comparator;
-import java.util.List;
-import org.testng.Assert;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 public class ContactModificationTests extends TestBase {
 
-  @Test(enabled = false)
-  public void testModification() {
-    if (!app.getContactHelper().isThereAContact()) {
-      app.goTo().goToAddContractPage();
-      app.getContactHelper().addContact(
-          new ContactData("Andrey", "Nikolaevich", "Zhukov", "zhukov_info",
-              "QA", "SomeCompany", "test address", "home", "89878658490",
-              "12222", "12345", "zhukovinfo@gmail.com", "mail2@email.com",
-              "email3@email.com", "www.home.com", "14", "March", "1987",
-              "aaa", "89878658493", "some notes", "test1"));
+  @BeforeMethod
+  public void ensurePreconditions(){
+    if (!app.contacts().isThereAContact()) {
+      app.goTo().addContractPage();
+      app.contacts().add(new ContactData()
+          .withFirstName("Andrey")
+          .withMiddleName("Nikolaevich")
+          .withLastName("Zhukov")
+          .withNickName("zhukov_info")
+          .withTitle("QA")
+          .withCompanyName("SomeCompany")
+          .withAddress("test address")
+          .withHomePhone("home")
+          .withMobilePhone("89878658490")
+          .withWorkPhone("12222")
+          .withFax("12345")
+          .withEmail("zhukovinfo@gmail.com")
+          .withEmail2("mail2@email.com")
+          .withEmail3("email3@email.com")
+          .withHomePage("www.home.com")
+          .withBirthDay("14")
+          .withBirthMonth("March")
+          .withBirthYear("1987")
+          .withAddress2("aaa")
+          .withHomePhone2("89878658493")
+          .withNotes("some notes")
+          .withGroup("test1"));
     }
+  }
 
-    List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().initContactModification(before.size() - 1);
-    ContactData contact = new ContactData(before.get(before.size() - 1).getId(),
-        "Vladimir", "Alexeyevich", "Sokolov", "sokolov_info",
-        "QC", "SomeCompany1", "test address1", "123", "89878658491",
-        "222", "3333", "sokolovinfo@gmail.com", "mail3@email.com",
-        "email5@email.com", "www.home1.com", "15", "March", "1988",
-        "www", "89878658491", "some notes more", null);
-    app.getContactHelper().fillContactEntry(contact, false);
-    app.getContactHelper().editSelectedGroup();
-    app.getContactHelper().returnToHomePage();
-    List<ContactData> after = app.getContactHelper().getContactList();
-    Assert.assertEquals(after.size(), before.size());
+  @Test()
+  public void testModification() {
+    Contacts before = app.contacts().all();
+    ContactData modifiedContact = before.iterator().next();
+    ContactData contact = new ContactData()
+        .withId(modifiedContact.getId())
+        .withFirstName("Vladimir")
+        .withMiddleName("Alexeyevich")
+        .withLastName("Sokol")
+        .withNickName("sokoban_info")
+        .withTitle("QC")
+        .withCompanyName("SomeCompany1")
+        .withAddress("test address 1")
+        .withHomePhone("home")
+        .withMobilePhone("89878658490")
+        .withWorkPhone("12222")
+        .withFax("12345")
+        .withEmail("sokolovinfo@gmail.com")
+        .withEmail2("mail5@email.com")
+        .withEmail3("email6@email.com")
+        .withHomePage("www.home.com")
+        .withBirthDay("15")
+        .withBirthMonth("March")
+        .withBirthYear("1988")
+        .withAddress2("qqq")
+        .withHomePhone2("89878658491")
+        .withNotes("some notes more");
 
-    before.remove(before.size() - 1);
-    before.add(contact);
-    Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
-    before.sort(byId);
-    after.sort(byId);
-    Assert.assertEquals(after, before);
+    app.contacts().modify(contact);
+    Contacts after = app.contacts().all();
 
+    assertThat(after.size(), equalTo(before.size()));
+    assertThat(after, equalTo(before.withOut(modifiedContact).withAdded(contact)));
   }
 }
