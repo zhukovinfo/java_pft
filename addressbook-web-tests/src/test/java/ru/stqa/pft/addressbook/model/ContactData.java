@@ -28,6 +28,17 @@ public class ContactData {
   private String notes;
   private String group;
 
+  private String allPhones;
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
