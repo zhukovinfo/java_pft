@@ -27,7 +27,6 @@ public class ContactData {
   private String homePhone2;
   private String notes;
   private String group;
-
   private String allPhones;
 
   public String getAllPhones() {
