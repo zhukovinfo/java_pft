@@ -15,8 +15,6 @@ Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java
 ^addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ApplicationManager.java,4\6\46efb033b20cd35cefa6af02316f74c03fbe4a35
 Œ
 \addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/NavigationHelper.java,c\b\cb758d7119e420e16f976be30ec6ebe7b89fef6d
-
-Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Contacts.java,1\7\1752541f06c63eaac2644aec5a1daaeadde84666
 €
 Paddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.java,a\6\a6eeb5be739719336a52fb834891e2bf911bdd5d
 }
