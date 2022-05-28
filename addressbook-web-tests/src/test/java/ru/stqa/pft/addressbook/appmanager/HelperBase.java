@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -15,7 +16,6 @@ public class HelperBase {
   }
 
   protected void selectFromDropDownBox(By locator, String value) {
-    click(locator);
     Select dropDown = new Select(wd.findElement(locator));
     if (isDropDownValuePresented(dropDown, value)) {
       dropDown.selectByVisibleText(value);
@@ -35,6 +35,12 @@ public class HelperBase {
         wd.findElement(locator).sendKeys(text);
       }
     }
+  }
+
+  protected void attach(By locator, File file) {
+    if (file != null){
+        wd.findElement(locator).sendKeys(file.getAbsolutePath());
+      }
   }
 
   protected boolean isElementPresent(By locator) {

@@ -7,8 +7,6 @@ j
 :sandbox/src/main/java/ru/stqa/pft/sandbox/Collections.java,8\a\8aa26e625b6cb9e1a8aef4e94b3ba7ecf1d1916e
 i
 9sandbox/src/test/java/ru/stqa/pft/sandbox/PrimeTests.java,7\2\727a27b3d737470f43b28eee862eeccfa5f72867
-Ü
-Vaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/HelperBase.java,1\1\1139002e5cd83db4ee92ce65b3358a75f22fce75
 R
 "addressbook-web-tests/build.gradle,d\4\d41149839a1b2cdef751b7541034bdb0431670b8
 
@@ -23,5 +21,9 @@ Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Contacts.java
 Paddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.java,a\6\a6eeb5be739719336a52fb834891e2bf911bdd5d
 }
 Maddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Groups.java,4\9\4950764af21366b99226e1782fd8f10ee85e9064
-è
-_addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactModificationTests.java,5\9\598b4ab8ff99354c8d18c51af3bbad5452d444e0
+ã
+[addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java,7\6\7694accd89f524b040567644b815ff78c750ab0c
+â
+Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java,5\a\5aba0ab9510127d189f650ee712c82a96bd75408
+ç
+]addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java,e\8\e852fa6337484e106770ac3879def38458293873

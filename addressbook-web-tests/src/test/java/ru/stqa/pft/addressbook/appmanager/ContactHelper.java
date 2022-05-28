@@ -24,6 +24,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("middlename"), contactData.getMiddleName());
     type(By.name("lastname"), contactData.getLastName());
     type(By.name("nickname"), contactData.getNickName());
+    attach(By.name("photo"), contactData.getPhoto());
     type(By.name("title"), contactData.getTitle());
     type(By.name("company"), contactData.getCompanyName());
     type(By.name("address"), contactData.getAddress());
@@ -42,7 +43,9 @@ public class ContactHelper extends HelperBase {
     type(By.name("phone2"), contactData.getHomePhone2());
     type(By.name("notes"), contactData.getNotes());
     if (creation) {
-        selectFromDropDownBox(By.name("new_group"),contactData.getGroup());
+      if (contactData.getGroup() != null) {
+        selectFromDropDownBox(By.name("new_group"), contactData.getGroup());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
