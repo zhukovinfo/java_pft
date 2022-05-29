@@ -18,6 +18,7 @@ public class ContactFieldsTests extends TestBase {
 
         assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
         assertThat(contact.getAllEMails(), equalTo(mergeEmails(contactInfoFromEditForm)));
+        assertThat(contact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
     }
 
     private static String cleaned(String phone) {
@@ -25,8 +26,8 @@ public class ContactFieldsTests extends TestBase {
     }
 
     private String mergePhones(ContactData contact) {
-        return Stream.of(contact.getHomePhone(), contact.getHomePhone2(),
-                contact.getMobilePhone(), contact.getWorkPhone())
+        return Stream.of(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone(),
+                contact.getHomePhone2())
             .filter( s -> ! s.equals(""))
             .map(ContactFieldsTests::cleaned)
             .collect(Collectors.joining("\n"));
