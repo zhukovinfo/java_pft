@@ -17,8 +17,6 @@ Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java
 [addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java,7\6\7694accd89f524b040567644b815ff78c750ab0c
 ç
 ]addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java,e\8\e852fa6337484e106770ac3879def38458293873
-è
-_addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactModificationTests.java,5\9\598b4ab8ff99354c8d18c51af3bbad5452d444e0
 â
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactFieldsTests.java,5\b\5b2a7605678626c146e9a7815135fc318f2ba25f
 Ü

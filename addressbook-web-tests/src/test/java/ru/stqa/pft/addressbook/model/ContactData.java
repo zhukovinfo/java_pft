@@ -323,4 +323,11 @@ public class ContactData {
     return result;
   }
 
+  @Override
+  public String toString() {
+    return "ContactData{" +
+        "firstName='" + firstName + '\'' +
+        ", lastName='" + lastName + '\'' +
+        '}';
+  }
 }
