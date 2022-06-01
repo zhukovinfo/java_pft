@@ -12,10 +12,9 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-
 import ru.stqa.pft.addressbook.model.GroupData;
 
-public class GroupDataGenerator {
+public class GroupsDataGenerator {
 
   @Parameter(names = "-c", description = "group count")
   public int count;
@@ -24,14 +23,14 @@ public class GroupDataGenerator {
   public String file;
 
   @Parameter(names = "-d", description = "data format")
-  public String format;
+  public static String dataFormat;
 
   public static void main(String[] args) throws IOException {
-    GroupDataGenerator generator = new GroupDataGenerator();
+    GroupsDataGenerator generator = new GroupsDataGenerator();
     JCommander jCommander = new JCommander(generator);
     try {
       jCommander.parse(args);
-    } catch (ParameterException ex){
+    } catch (ParameterException ex) {
       jCommander.usage();
       return;
     }
@@ -40,19 +39,21 @@ public class GroupDataGenerator {
 
   private void run() throws IOException {
     List<GroupData> groups = generateGroups(count);
-    System.out.println(new File(".").getAbsoluteFile());
-    if (format.equals("csv")) {
-      saveAsCsv(groups, new File(file));
-    } else if (format.equals("xml")){
-      saveAsXml(groups, new File(file));
-    } else if (format.equals("json")){
-      saveAsJson(groups, new File(file));
-    }
-    else {
-      System.out.println("unrecognized format" + format);
+    switch (dataFormat) {
+      case "csv":
+        saveAsCsv(groups, new File(file));
+        break;
+      case "xml":
+        saveAsXml(groups, new File(file));
+        break;
+      case "json":
+        saveAsJson(groups, new File(file));
+        break;
+      default:
+        System.out.println("unrecognized format " + dataFormat);
+        break;
     }
   }
-
 
   private void saveAsXml(List<GroupData> groups, File file) throws IOException {
     XStream xStream = new XStream();
@@ -81,7 +82,7 @@ public class GroupDataGenerator {
 
   private static List<GroupData> generateGroups(int count) {
     List<GroupData> groups = new ArrayList<GroupData>();
-    for (int i =0; i <count; i++) {
+    for (int i = 0; i < count; i++) {
       groups.add(new GroupData()
           .withName(String.format("test %s", i))
           .withHeader(String.format("header %s", i))
@@ -89,5 +90,4 @@ public class GroupDataGenerator {
     }
     return groups;
   }
-
 }
