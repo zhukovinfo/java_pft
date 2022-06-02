@@ -27,7 +27,5 @@ Waddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHel
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java,a\6\a62f86d61790e2afa3a4a36f13467f16eecc5320
 ‰
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java,5\a\5aba0ab9510127d189f650ee712c82a96bd75408
-R
-"addressbook-web-tests/build.gradle,d\4\d41149839a1b2cdef751b7541034bdb0431670b8
 }
 Maddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Groups.java,4\9\4950764af21366b99226e1782fd8f10ee85e9064
