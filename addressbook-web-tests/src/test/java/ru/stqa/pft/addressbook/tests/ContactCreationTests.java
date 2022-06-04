@@ -91,10 +91,10 @@ public class ContactCreationTests extends TestBase {
 
   @Test(dataProvider = "validContactsFromXML")
   public void testContactCreation(ContactData contact) {
-    Contacts before = app.contacts().all();
+    Contacts before = app.db().contacts();
     app.goTo().addContractPage();
     app.contacts().add(contact);
-    Contacts after = app.contacts().all();
+    Contacts after = app.db().contacts();
 
     assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(before
