@@ -3,66 +3,140 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.io.File;
+import org.hibernate.annotations.Type;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
+
   @Expose
+  @Column(name = "firstname")
   private String firstName;
+
   @Expose
+  @Column(name = "middlename")
   private String middleName;
+
   @Expose
+  @Column(name = "lastname")
   private String lastName;
+
   @Expose
+  @Column(name = "nickname")
   private String nickName;
+
   @Expose
+  @Column(name = "title")
   private String title;
+
   @Expose
+  @Column(name = "company")
   private String companyName;
+
   @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   private String address;
+
   @Expose
+  @Column(name = "home")
+  @Type(type = "text")
   private String homePhone;
+
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   private String mobilePhone;
+
   @Expose
+  @Column(name = "work")
+  @Type(type = "text")
   private String workPhone;
+
   @Expose
+  @Column(name = "fax")
+  @Type(type = "text")
   private String fax;
+
   @Expose
+  @Column(name = "email")
+  @Type(type = "text")
   private String email;
+
   @Expose
+  @Column(name = "email2")
+  @Type(type = "text")
   private String email2;
+
   @Expose
+  @Column(name = "email3")
+  @Type(type = "text")
   private String email3;
+
   @Expose
+  @Column(name = "homepage")
+  @Type(type = "text")
   private String homePage;
+
   @Expose
+  @Column(name = "bday", columnDefinition = "TINYINT")
   private String birthDay;
+
   @Expose
+  @Column(name = "bmonth")
   private String birthMonth;
+
   @Expose
+  @Column(name = "byear")
   private String birthYear;
+
   @Expose
+  @Column(name = "address2")
+  @Type(type = "text")
   private String address2;
+
   @Expose
+  @Column(name = "phone2")
+  @Type(type = "text")
   private String homePhone2;
+
   @Expose
+  @Column(name = "notes")
+  @Type(type = "text")
   private String notes;
+
   @Expose
+  @Transient
   private String group;
+
+  @Transient
   private String allPhones;
-  private File photo;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+
+  @Transient
+  private String allEMails;
 
   public ContactData withPhoto(File photo) {
-   this.photo = photo;
+   this.photo = photo.getPath();
     return this;
   }
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public String getAllEMails() {
@@ -74,8 +148,6 @@ public class ContactData {
     return this;
   }
 
-  private String allEMails;
-
   public String getAllPhones() {
     return allPhones;
   }
@@ -84,8 +156,6 @@ public class ContactData {
     this.allPhones = allPhones;
     return this;
   }
-
-
 
   public ContactData withId(int id) {
     this.id = id;

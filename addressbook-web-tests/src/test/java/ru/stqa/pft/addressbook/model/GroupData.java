@@ -3,31 +3,44 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.Type;
 
 @XStreamAlias("group")
+@Entity
+@Table(name = "group_list")
 public class GroupData {
   @XStreamOmitField
+  @Id
+  @Column(name = "group_id")
   private int id = Integer.MAX_VALUE;
+
   @Expose
+  @Column(name = "group_name")
   private String name;
+
   @Expose
+  @Column(name = "group_header")
+  @Type(type = "text")
   private String header;
+
   @Expose
+  @Column(name = "group_footer")
+  @Type(type = "text")
   private String footer;
 
-  public String getName() {
-    return name;
+  @Override
+  public String toString() {
+    return "GroupData{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", header='" + header + '\'' +
+        ", footer='" + footer + '\'' +
+        '}';
   }
-
-  public String getHeader() {
-    return header;
-  }
-
-  public String getFooter() {
-    return footer;
-  }
-
-  public int getId() { return id; }
 
   @Override
   public boolean equals(Object o) {
@@ -43,15 +56,37 @@ public class GroupData {
     if (id != groupData.id) {
       return false;
     }
-    return name != null ? name.equals(groupData.name) : groupData.name == null;
+    if (name != null ? !name.equals(groupData.name) : groupData.name != null) {
+      return false;
+    }
+    if (header != null ? !header.equals(groupData.header) : groupData.header != null) {
+      return false;
+    }
+    return footer != null ? footer.equals(groupData.footer) : groupData.footer == null;
   }
 
   @Override
   public int hashCode() {
     int result = id;
     result = 31 * result + (name != null ? name.hashCode() : 0);
+    result = 31 * result + (header != null ? header.hashCode() : 0);
+    result = 31 * result + (footer != null ? footer.hashCode() : 0);
     return result;
   }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getHeader() {
+    return header;
+  }
+
+  public String getFooter() {
+    return footer;
+  }
+
+  public int getId() { return id; }
 
   public GroupData withId(int id) {
     this.id = id;
@@ -71,16 +106,6 @@ public class GroupData {
   public GroupData withFooter(String footer) {
     this.footer = footer;
     return this;
-
   }
-
-  @Override
-  public String toString() {
-    return "GroupData{" +
-        "id='" + id + '\'' +
-        ", name='" + name + '\'' +
-        '}';
-  }
-
 
 }

@@ -9,8 +9,6 @@ i
 \addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/NavigationHelper.java,c\b\cb758d7119e420e16f976be30ec6ebe7b89fef6d
 ã
 [addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactDeletionTests.java,7\6\7694accd89f524b040567644b815ff78c750ab0c
-ç
-]addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java,e\8\e852fa6337484e106770ac3879def38458293873
 â
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactFieldsTests.java,5\b\5b2a7605678626c146e9a7815135fc318f2ba25f
 Ü
@@ -21,5 +19,9 @@ Waddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHel
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactHelper.java,a\6\a62f86d61790e2afa3a4a36f13467f16eecc5320
 â
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java,5\a\5aba0ab9510127d189f650ee712c82a96bd75408
-}
-Maddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Groups.java,4\9\4950764af21366b99226e1782fd8f10ee85e9064
+è
+_addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactModificationTests.java,5\9\598b4ab8ff99354c8d18c51af3bbad5452d444e0
+è
+_addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/GroupsDataGenerator.java,b\d\bd02e39e1af8358461d41b6613c81dc3c74d5048
+ë
+aaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactsDataGenerator.java,2\1\21369a8e1ea4349fb55ca1e0eebaa37ff8f06722

@@ -12,6 +12,8 @@ dependencies {
     implementation 'com.thoughtworks.xstream:xstream:1.4.8'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'ch.qos.logback:logback-classic:1.2.11'
+    implementation 'mysql:mysql-connector-java:8.0.29'
+    implementation 'org.hibernate:hibernate-core-jakarta:5.6.9.Final'
 }
 
 task testGroups(type: Test) {
