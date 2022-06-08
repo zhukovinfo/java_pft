@@ -106,9 +106,9 @@ public class ContactCreationTests extends TestBase {
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     Contacts before = app.db().contacts();
-    Groups groups = app.db().groups();
     app.goTo().addContractPage();
-    app.contacts().add(contact);
+    Groups groups = app.db().groups();
+    app.contacts().add(contact.inGroup(groups.iterator().next()));
     Contacts after = app.db().contacts();
 
     assertThat(after.size(), equalTo(before.size() + 1));
