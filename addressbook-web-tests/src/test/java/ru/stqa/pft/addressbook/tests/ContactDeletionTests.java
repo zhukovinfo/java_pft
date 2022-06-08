@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 public class ContactDeletionTests extends TestBase {
 
@@ -14,6 +15,7 @@ public class ContactDeletionTests extends TestBase {
   public void ensurePreconditions(){
     if (app.db().contacts().size() == 0) {
       app.goTo().addContractPage();
+      Groups groups = app.db().groups();
       app.contacts().add(new ContactData()
           .withFirstName("Andrey1")
           .withMiddleName("Nikolaevich")
@@ -36,7 +38,7 @@ public class ContactDeletionTests extends TestBase {
           .withAddress2("aaa")
           .withHomePhone2("89878658493")
           .withNotes("some notes")
-          .withGroup("test1"));
+          .inGroup(groups.iterator().next()));
     }
   }
 

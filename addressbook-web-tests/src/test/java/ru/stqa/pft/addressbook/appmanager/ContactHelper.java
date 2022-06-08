@@ -43,8 +43,9 @@ public class ContactHelper extends HelperBase {
     type(By.name("phone2"), contactData.getHomePhone2());
     type(By.name("notes"), contactData.getNotes());
     if (creation) {
-      if (contactData.getGroup() != null) {
-        selectFromDropDownBox(By.name("new_group"), contactData.getGroup());
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        selectFromDropDownBox(By.name("new_group"), contactData.getGroups().iterator().next().getName());
       }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));

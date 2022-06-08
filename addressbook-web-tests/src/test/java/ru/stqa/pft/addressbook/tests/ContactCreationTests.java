@@ -14,12 +14,26 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.openqa.selenium.json.TypeToken;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 public class ContactCreationTests extends TestBase {
+
+  @BeforeMethod
+  private void ensureGroups(){
+    Groups groups = app.db().groups();
+    if (groups.size() == 0) {
+      app.group().createGroup(new GroupData()
+          .withName("test group 1")
+          .withFooter("test header")
+          .withFooter("test footer"));
+    }
+  }
 
   @DataProvider
   public Iterator<Object[]> validContactsFromCSV() throws IOException {
@@ -89,9 +103,10 @@ public class ContactCreationTests extends TestBase {
     }
   }
 
-  @Test(dataProvider = "validContactsFromXML")
+  @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     Contacts before = app.db().contacts();
+    Groups groups = app.db().groups();
     app.goTo().addContractPage();
     app.contacts().add(contact);
     Contacts after = app.db().contacts();

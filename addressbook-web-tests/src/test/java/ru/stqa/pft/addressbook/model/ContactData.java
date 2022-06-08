@@ -5,10 +5,16 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 import org.hibernate.annotations.Type;
 
 @XStreamAlias("contact")
@@ -116,9 +122,9 @@ public class ContactData {
   @Type(type = "text")
   private String notes;
 
-  @Expose
-  @Transient
-  private String group;
+//  @Expose
+//  @Transient
+//  private String group;
 
   @Transient
   private String allPhones;
@@ -129,6 +135,13 @@ public class ContactData {
 
   @Transient
   private String allEMails;
+
+  @Expose
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+      joinColumns = @JoinColumn(name="id"), inverseJoinColumns = @JoinColumn(name="group_id"))
+  private Set<GroupData> groups = new HashSet<>();
+
 
   public ContactData withPhoto(File photo) {
    this.photo = photo.getPath();
@@ -271,10 +284,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
 
   public String getFirstName() {
     return firstName;
@@ -360,8 +369,8 @@ public class ContactData {
     return notes;
   }
 
-  public String getGroup() {
-    return group;
+  public Groups getGroups() {
+    return new Groups(groups);
   }
 
   public int getId() {
@@ -500,4 +509,8 @@ public class ContactData {
     return result;
   }
 
+  public ContactData inGroup(GroupData group) {
+    groups.add(group);
+    return this;
+  }
 }
