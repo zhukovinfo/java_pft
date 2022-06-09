@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import java.io.File;
+import jdk.nashorn.internal.runtime.logging.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
@@ -17,8 +18,11 @@ public class HelperBase {
 
   protected void selectFromDropDownBox(By locator, String value) {
     Select dropDown = new Select(wd.findElement(locator));
-    if (isDropDownValuePresented(dropDown, value)) {
+    try {
       dropDown.selectByVisibleText(value);
+    }
+    catch (NoSuchElementException e){
+      System.out.println(e.getMessage());
     }
   }
 
@@ -57,16 +61,6 @@ public class HelperBase {
       wd.switchTo().alert();
       return true;
     } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private boolean isDropDownValuePresented(Select dropDown, String value){
-    try {
-      dropDown.selectByVisibleText(value);
-      return true;
-    }
-    catch (NoSuchElementException e){
       return false;
     }
   }

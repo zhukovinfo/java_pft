@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import java.security.acl.Group;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -44,4 +43,27 @@ public class DbHelper {
     session.close();
     return new Contacts(result);
   }
+
+  public ContactData contactById(int id) {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<ContactData> result = session
+        .createQuery( "from ContactData where id = " + id)
+        .list();
+    session.getTransaction().commit();
+    session.close();
+    return result.get(0);
+  }
+
+  public ContactData contactByfirstName(String firstName) {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    List<ContactData> result = session
+        .createQuery( "from ContactData where firstname = '" + firstName + "'")
+        .list();
+    session.getTransaction().commit();
+    session.close();
+    return result.get(0);
+  }
+
 }

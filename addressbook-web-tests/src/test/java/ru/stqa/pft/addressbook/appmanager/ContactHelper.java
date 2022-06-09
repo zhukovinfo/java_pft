@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 public class ContactHelper extends HelperBase {
 
@@ -84,6 +85,18 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
+  private void addTo(String groupName) {
+    selectFromDropDownBox(By.name("to_group"), groupName);
+    click(By.name("add"));
+  }
+
+  private void removeFrom() {
+    click(By.name("remove"));
+  }
+
+  public void selectGroup(GroupData group) {
+    selectFromDropDownBox(By.name("group"), group.getName());
+  }
   public void add(ContactData contactData) {
     fillContactEntry(contactData, true);
     submitContactCreation();
@@ -101,6 +114,17 @@ public class ContactHelper extends HelperBase {
     fillContactEntry(contact, false);
     editSelectedGroup();
     returnToHomePage();
+  }
+
+  public void addToGroup(ContactData contact, GroupData group){
+    selectContactById(contact.getId());
+    addTo(group.getName());
+  }
+
+  public void removeFromGroup(ContactData contact, GroupData group) {
+    selectGroup(group);
+    selectContactById(contact.getId());
+    removeFrom();
   }
 
   public List<ContactData> list() {
