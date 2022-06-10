@@ -25,6 +25,33 @@ public class ContactToGroupTests extends TestBase {
     }
 
     Contacts contacts = app.db().contacts();
+    if (contacts.size() == 0) {
+      app.goTo().addContractPage();
+      app.contacts().add(new ContactData()
+          .withFirstName("Andrey")
+          .withMiddleName("Nikolaevich")
+          .withLastName("Zhukov")
+          .withNickName("zhukov_info")
+          .withTitle("QA")
+          .withCompanyName("SomeCompany")
+          .withAddress("test address")
+          .withHomePhone("home")
+          .withMobilePhone("89878658490")
+          .withWorkPhone("12222")
+          .withFax("12345")
+          .withEmail("zhukovinfo@gmail.com")
+          .withEmail2("mail2@email.com")
+          .withEmail3("email3@email.com")
+          .withHomePage("www.home.com")
+          .withBirthDay("14")
+          .withBirthMonth("March")
+          .withBirthYear("1987")
+          .withAddress2("aaa")
+          .withHomePhone2("89878658493")
+          .withNotes("some notes")
+          .inGroup(allGroups.iterator().next()));
+    }
+
     contact = contacts.iterator().next();
     if (contact.getGroups().size() == allGroups.size()) {
       app.goTo().addContractPage();
