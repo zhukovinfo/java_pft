@@ -17,16 +17,15 @@ public class ContactFromGroupTests extends TestBase {
 
   @BeforeMethod
   private void ensurePreconditions(){
-    Groups groups = app.db().groups();
-    if (groups.size() == 0) {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
       app.group().createGroup(new GroupData()
           .withName("test group 1")
           .withFooter("test header")
           .withFooter("test footer"));
     }
 
-    Contacts contacts = app.db().contacts();
-    if (contacts.size() == 0) {
+    if (app.db().contacts().size() == 0) {
       app.goTo().addContractPage();
       app.contacts().add(new ContactData()
           .withFirstName("Andrey")
@@ -50,12 +49,12 @@ public class ContactFromGroupTests extends TestBase {
           .withAddress2("aaa")
           .withHomePhone2("89878658493")
           .withNotes("some notes")
-          .inGroup(groups.iterator().next()));
+          .inGroup(app.db().groups().iterator().next()));
     }
 
-    contact = contacts.iterator().next();
+    contact = app.db().contacts().iterator().next();
     if (contact.getGroups().size() == 0) {
-      GroupData group = groups.iterator().next();
+      GroupData group = app.db().groups().iterator().next();
       app.contacts().addToGroup(contact, group);
       app.goTo().homePage();
     }

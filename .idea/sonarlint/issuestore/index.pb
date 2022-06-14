@@ -21,16 +21,12 @@ Paddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.jav
 Maddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Groups.java,4\9\4950764af21366b99226e1782fd8f10ee85e9064
 ‘
 aaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/ContactsDataGenerator.java,2\1\21369a8e1ea4349fb55ca1e0eebaa37ff8f06722
-‡
-Waddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/GroupHelper.java,8\c\8c7ed2d864ded7b936a25fb68ce1959e4bc2dbf9
 ‰
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java,5\a\5aba0ab9510127d189f650ee712c82a96bd75408
 
 Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java,6\2\62e28f2e906d5374a0c50fd3ba7ec428a52d0774
 
 Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/Contacts.java,1\7\1752541f06c63eaac2644aec5a1daaeadde84666
-‰
-Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java,f\3\f3e320768c8def4c4facc990215881ab06e809a2
 ˆ
 Xaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/HbConnectionTests.java,5\e\5e318e36eeb14463c426e0919042e3a2c9ca935a
 Ž
