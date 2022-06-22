@@ -159,7 +159,7 @@ public class JamesHelper {
   private Folder openInbox(String username, String password) throws MessagingException {
     store = mailSession.getStore("pop3");
     store.connect(mailserver, username, password);
-    Folder folder = store.getDefaultFolder().getFolder("INBOX");
+    Folder folder = store.getDefaultFolder().getFolder("Inbox");
     folder.open(Folder.READ_WRITE);
     return folder;
   }
