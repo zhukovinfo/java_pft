@@ -29,9 +29,8 @@ public class ChangePasswordTests extends TestBase {
     app.manageUsers().selectUser(username);
     app.editUser().resetPassword();
 
-    String email = String.format("%s@localhost.localadmin", username) ;
     List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
-    String confirmationLink = findConfirmationLink(mailMessages, email);
+    String confirmationLink = findConfirmationLink(mailMessages, user.getEmail());
 
     app.registration().finish(confirmationLink, username, password);
 

@@ -16,8 +16,14 @@ public class UserData {
   @Column(name = "username")
   private String username;
 
+  @Column(name = "email")
+  private String email;
+
   public String getUsername() {
     return username;
   }
 
+  public String getEmail() {
+    return email;
+  }
 }
