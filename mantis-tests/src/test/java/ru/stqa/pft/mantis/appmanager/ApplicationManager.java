@@ -32,6 +32,7 @@ public class ApplicationManager {
   private DbHelper dbHelper;
   private ManageUsersHelper manageUsersHelper;
   private EditUserHelper editUserHelper;
+  private SoapHelper soapHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -99,6 +100,13 @@ public class ApplicationManager {
       dbHelper = new DbHelper();
     }
     return dbHelper;
+  }
+
+  public SoapHelper soap() {
+    if (soapHelper == null) {
+      soapHelper = new SoapHelper(this);
+    }
+    return soapHelper;
   }
 
   public RegistrationHelper registration() {
