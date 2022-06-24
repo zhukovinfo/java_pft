@@ -1,13 +1,11 @@
 package ru.stqa.pft.addressbook.tests;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.stream.Collectors;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.remote.BrowserType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,6 +52,8 @@ public class TestBase {
           .map(g -> new GroupData().withName(g.getName()))
           .collect((Collectors.toSet()))));
     }
-
   }
+
+
+
 }

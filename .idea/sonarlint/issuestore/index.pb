@@ -27,8 +27,6 @@ D
 mantis-tests/gradlew,a\4\a44c71fa0a90b7244f5be2ea65a305977e878a13
 H
 mantis-tests/gradlew.bat,6\0\6061f980657a85a6f517f4295ef5292e8c1fa34d
-
-Oaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/TestBase.java,6\2\62e28f2e906d5374a0c50fd3ba7ec428a52d0774
 Œ
 \addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/NavigationHelper.java,c\b\cb758d7119e420e16f976be30ec6ebe7b89fef6d
 ‰

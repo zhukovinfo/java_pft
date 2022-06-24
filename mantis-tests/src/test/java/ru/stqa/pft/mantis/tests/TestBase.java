@@ -31,14 +31,22 @@ public class TestBase {
     app.stop();
   }
 
+
   public void skipIfNotFixed(int issueId) throws MalformedURLException, ServiceException, RemoteException {
     if (isIssueOpen(issueId)) {
       throw new SkipException("Ignored because of issue " + issueId);
     }
   }
 
+  private boolean isIssueOpen(int issueId) {
+    String status = app.rest().getIssue(issueId).getStateName();
+    return !Objects.equals(status, "Resolved") && !Objects.equals(status, "Closed");
+  }
+
+  /*  example to get data by soap
   private boolean isIssueOpen(int issueId) throws MalformedURLException, ServiceException, RemoteException {
     String status = app.soap().getIssue(issueId).getStatus().getName();
     return !Objects.equals(status, "resolved") && !Objects.equals(status, "closed");
   }
+  */
 }

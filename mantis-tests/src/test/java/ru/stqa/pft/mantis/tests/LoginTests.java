@@ -11,7 +11,8 @@ public class LoginTests extends TestBase {
 
   @Test
   public void testLogin() throws IOException, ServiceException {
-    skipIfNotFixed(0000001);
+    //skipIfNotFixed(0000001); Mantis issue id, for soap example
+    skipIfNotFixed(2056); // Bugify issue id, for rest example
     HttpSession session = app.newSession();
     assertTrue(session.login("administrator", "root"));
     assertTrue(session.isLoggedInAs("administrator"));

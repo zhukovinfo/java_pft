@@ -18,6 +18,8 @@ import ru.stqa.pft.mantis.appmanager.utilities.DbHelper;
 import ru.stqa.pft.mantis.appmanager.utilities.FtpHelper;
 import ru.stqa.pft.mantis.appmanager.utilities.JamesHelper;
 import ru.stqa.pft.mantis.appmanager.utilities.MailHelper;
+import ru.stqa.pft.mantis.appmanager.utilities.RestHelper;
+import ru.stqa.pft.mantis.appmanager.utilities.SoapHelper;
 
 public class ApplicationManager {
 
@@ -33,6 +35,7 @@ public class ApplicationManager {
   private ManageUsersHelper manageUsersHelper;
   private EditUserHelper editUserHelper;
   private SoapHelper soapHelper;
+  private RestHelper restHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -68,6 +71,7 @@ public class ApplicationManager {
       } else if (Objects.equals(browser, BrowserType.IE)) {
         wd = new InternetExplorerDriver();
       }
+      assert wd != null;
       wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
       wd.get(properties.getProperty("web.baseUrl"));
     }
@@ -107,6 +111,13 @@ public class ApplicationManager {
       soapHelper = new SoapHelper(this);
     }
     return soapHelper;
+  }
+
+  public RestHelper rest() {
+    if (restHelper == null) {
+      restHelper = new RestHelper(this);
+    }
+    return restHelper;
   }
 
   public RegistrationHelper registration() {

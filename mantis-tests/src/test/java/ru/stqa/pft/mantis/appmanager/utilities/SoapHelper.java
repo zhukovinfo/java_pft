@@ -1,4 +1,4 @@
-package ru.stqa.pft.mantis.appmanager;
+package ru.stqa.pft.mantis.appmanager.utilities;
 
 import biz.futureware.mantis.rpc.soap.client.IssueData;
 import biz.futureware.mantis.rpc.soap.client.MantisConnectLocator;
@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.xml.rpc.ServiceException;
+import ru.stqa.pft.mantis.appmanager.ApplicationManager;
 import ru.stqa.pft.mantis.model.Issue;
 import ru.stqa.pft.mantis.model.Project;
 import ru.stqa.pft.mantis.model.Status;
