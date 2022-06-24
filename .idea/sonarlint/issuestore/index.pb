@@ -17,12 +17,6 @@ aaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/generators/Contacts
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupDeletionTests.java,5\a\5aba0ab9510127d189f650ee712c82a96bd75408
 à
 Xaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/HbConnectionTests.java,5\e\5e318e36eeb14463c426e0919042e3a2c9ca935a
-ç
-]addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupModificationTests.java,e\8\e852fa6337484e106770ac3879def38458293873
-ä
-Zaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactToGroupTests.java,e\5\e511979d72d40347c2d81f6feecbbff1b19ce1da
-å
-\addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactFromGroupTests.java,f\3\f3a14543fc96b05579d5aba484194ba95c4def5f
 D
 mantis-tests/gradlew,a\4\a44c71fa0a90b7244f5be2ea65a305977e878a13
 H
@@ -39,8 +33,6 @@ Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/appmanager/ContactH
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/GroupCreationTests.java,f\3\f3e320768c8def4c4facc990215881ab06e809a2
 â
 Yaddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactFieldsTests.java,5\b\5b2a7605678626c146e9a7815135fc318f2ba25f
-ã
-[addressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/tests/ContactCreationTests.java,c\6\c62d2101312e89907aad35f17e78068bc0425825
 Ä
 Paddressbook-web-tests/src/test/java/ru/stqa/pft/addressbook/model/GroupData.java,a\6\a6eeb5be739719336a52fb834891e2bf911bdd5d
 

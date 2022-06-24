@@ -29,9 +29,9 @@ public class ContactCreationTests extends TestBase {
     Groups groups = app.db().groups();
     if (groups.size() == 0) {
       app.group().createGroup(new GroupData()
-          .withName("test group 1")
-          .withFooter("test header")
-          .withFooter("test footer"));
+          .withName("test1")
+          .withHeader("test2")
+          .withFooter("test3"));
     }
   }
 

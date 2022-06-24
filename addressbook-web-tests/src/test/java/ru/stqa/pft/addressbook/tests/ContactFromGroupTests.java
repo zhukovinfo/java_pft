@@ -20,9 +20,9 @@ public class ContactFromGroupTests extends TestBase {
     if (app.db().groups().size() == 0) {
       app.goTo().groupPage();
       app.group().createGroup(new GroupData()
-          .withName("test group 1")
-          .withFooter("test header")
-          .withFooter("test footer"));
+          .withName("test1")
+          .withHeader("test2")
+          .withFooter("test3"));
     }
 
     if (app.db().contacts().size() == 0) {
