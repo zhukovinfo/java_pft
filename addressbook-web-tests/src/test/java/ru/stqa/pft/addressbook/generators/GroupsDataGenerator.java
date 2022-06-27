@@ -66,6 +66,8 @@ public class GroupsDataGenerator {
   }
 
   private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
+    File wd = new File(".");
+    System.out.println("working dir: " + wd.getAbsolutePath());
     try (Writer writer = new FileWriter(file)){
       for (GroupData group : groups) {
         writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));

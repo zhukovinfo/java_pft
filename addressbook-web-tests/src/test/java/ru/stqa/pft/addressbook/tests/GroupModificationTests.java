@@ -16,9 +16,9 @@ public class GroupModificationTests extends TestBase {
     if (app.db().groups().size() == 0) {
       app.goTo().groupPage();
       app.group().createGroup(new GroupData()
-          .withName("test1")
-          .withHeader("test2")
-          .withFooter("test3"));
+          .withName("test 1")
+          .withHeader("test 1")
+          .withFooter("test 1"));
     }
   }
 
@@ -28,9 +28,9 @@ public class GroupModificationTests extends TestBase {
     GroupData modifiedGroup = before.iterator().next();
     GroupData group = new GroupData()
         .withId(modifiedGroup.getId())
-        .withName("test1")
-        .withHeader("test2")
-        .withFooter("test3");
+        .withName("test 1")
+        .withHeader("test 1")
+        .withFooter("test 1");
     app.goTo().groupPage();
     app.group().modify(modifiedGroup);
     assertEquals(app.group().count(), before.size());
